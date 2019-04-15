@@ -1,0 +1,11 @@
+{% if latest_demos %}
+{% for demo in latest_demos %}
+<p>
+<h2><a href="/demo/{{ demo.id }}/">{{ demo.title }}</a></h2>
+<h4>{{demo.adress}}</h4>
+<h4>{{demo.organizer}}</h4>
+</p>
+{% endfor %}
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
