@@ -85,7 +85,7 @@ DATABASES_AVAILABLE = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "protesthub_travis",
         'USER': "travis",
-        'PASSWORD': "root",
+        'PASSWORD': "",
         'HOST': "127.0.0.1",
         'PORT': "3306"
     }
