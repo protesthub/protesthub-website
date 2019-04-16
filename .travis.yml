@@ -1,0 +1,21 @@
+dist: xenial
+
+language: python
+
+python:
+  - "3.7"
+
+services:
+  - mysql
+
+env:
+  - DJANGO_DATABASE_TEST=travis
+
+before_script:
+  - mysql -e 'create database protesthub_travis'
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - python manage.py test
