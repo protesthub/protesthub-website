@@ -16,13 +16,7 @@ def index(request):
     }
     return HttpResponse(template.render(output, request))
 
-def single_site(request):
-    single_demo=Demo.objects("-is_like")[:1]
-    template =loader._get_template("main/demo.html")
-    output = {
-        "demo": single_demo,
-    }
-    return HttpResponse(template.render(output, request))
+
 
 class search_view(TemplateView):
     template_name="main/search.html"

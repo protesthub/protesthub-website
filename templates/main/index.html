@@ -1,3 +1,13 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
 <form id="searchform" action="{% url 'search' %}" method="get" accept-charset="utf-8">
       <button class="searchbutton" type="submit">
         <i class="fa fa-search"></i>
@@ -12,8 +22,11 @@
         <h3>{{demo.adress}} - von {{demo.organizer}}</h3>
         <h4>{{demo.starting_time}} -{{demo.ending_time}}</h4>
         <h6>{{demo.description}}</h6>
-    </p>
+
     {% endfor %}
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+</body>
+</html>
