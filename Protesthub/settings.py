@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'Protesthub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
+DATABASES_AVAILABLE = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "protesthub_dev",
@@ -80,7 +80,20 @@ DATABASES = {
         'PASSWORD': "test",
         'HOST': "127.0.0.1",
         'PORT': "3306"
+    },
+    'travis': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "protesthub_travis",
+        'USER': "travis",
+        'PASSWORD': "root",
+        'HOST': "127.0.0.1",
+        'PORT': "3306"
     }
+}
+
+database = os.environ.get('DJANGO_DATABASE_TEST', 'default')
+DATABASES = {
+    'default': DATABASES_AVAILABLE[database]
 }
 
 # Password validation
