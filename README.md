@@ -1,5 +1,6 @@
 ProtestHub
 ==========
+https://travis-ci.org/protesthub/protesthub-website.svg?branch=master
 
 ## Requirements
 ```bash
