@@ -1,6 +1,6 @@
 ProtestHub
 ==========
-https://travis-ci.org/protesthub/protesthub-website.svg?branch=master
+[![pipeline status](https://travis-ci.org/protesthub/protesthub-website.svg?branch=master)](https://travis-ci.org/protesthub/protesthub-website.svg?branch=master)
 
 ## Requirements
 ```bash
