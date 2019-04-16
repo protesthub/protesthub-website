@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form id="searchform" action="{% url 'search' %}" method="get" accept-charset="utf-8">
+      <button class="searchbutton" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+</form>
+
+{% if latest_demos %}
+    {% for demo in latest_demos %}
+    <p>
+        <h2><a href="/demo/{{ demo.id }}/">{{ demo.title }}</a></h2>
+        <h3>{{demo.adress}} - von {{demo.organizer}}</h3>
+        <h4>{{demo.starting_time}} -{{demo.ending_time}}</h4>
+        <h6>{{demo.description}}</h6>
+
+    {% endfor %}
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+</body>
+</html>
