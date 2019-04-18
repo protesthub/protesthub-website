@@ -36,7 +36,7 @@
           <a class="ui button">Log in</a>
         </div>
         <div class="item">
-          <a class="ui primary button">Sign Up</a>
+          <a class="ui primary button" href="{% url 'sign_up' %}">Sign Up</a>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
   <div class="ui vertical inverted sidebar menu">
     <a class="active item">ProtestHub</a>
     <a class="item">Login</a>
-    <a class="item">Signup</a>
+    <a class="item" href="{% url 'sign_up' %}">Signup</a>
   </div>
 
   <!-- Page Contents -->
@@ -68,7 +68,7 @@
               </div>
             </form>
             <a class="ui inverted center aligned button">Log in</a>
-            <a class="ui inverted center aligned button">Sign Up</a>
+            <a class="ui inverted center aligned button" href="{% url 'sign_up' %}">Sign Up</a>
           </div>
         </div>
       </div>
