@@ -1,0 +1,76 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<div class="ui middle aligned grid">
+  <div class="six wide column"></div>
+  <div class="four wide column">
+    <h2 class="ui center aligned header">
+      <div class="content">
+        Join ProtestHub
+      </div>
+    </h2>
+    <form class="ui large form">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" placeholder="Username">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="email" placeholder="E-mail address">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden">
+            <label>I accept the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden">
+            <label>I'd like to receive updates via email about ProtestHub.</label>
+          </div>
+        </div>
+
+        <div class="ui fluid large green submit button">Sign Up</div>
+
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      Already signed up? <a href="#">Log In</a>
+    </div>
+  </div>
+  <div class="six wide column"></div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+$(document)
+  .ready(function() {
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+  })
+;
+</script>
+{% endblock script %}

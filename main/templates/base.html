@@ -19,7 +19,7 @@
   <!-- Following Menu -->
   <div class="ui large top fixed hidden menu">
     <div class="ui container">
-      <a class="active item">ProtestHub</a>
+      <a class="active item" href="{% url 'index' %}">ProtestHub</a>
       <a class="item">Work</a>
       <a class="item">Company</a>
       <a class="item">Careers</a>
@@ -44,7 +44,7 @@
 
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
-    <a class="active item">ProtestHub</a>
+    <a class="active item" href="{% url 'index' %}">ProtestHub</a>
     <a class="item">Login</a>
     <a class="item" href="{% url 'users:sign_up' %}">Signup</a>
   </div>
@@ -57,7 +57,7 @@
           <a class="toc item">
             <i class="sidebar icon"></i>
           </a>
-          <a class="active item">ProtestHub</a>
+          <a class="active item" href="{% url 'index' %}">ProtestHub</a>
           <a class="item">Featured</a>
           <a class="item">Blog</a>
           <div class="right item">
@@ -72,87 +72,11 @@
           </div>
         </div>
       </div>
-
-      <div class="ui container">
-        <h1 class="ui inverted header">
-          The real world is calling
-        </h1>
-        <h2>
-          Join a local group to meet people, try something new, or protest for what you love.
-        </h2>
-
-    <div class="ui inverted form">
-      <div class="three fields">
-        <div class="field">
-          <label>Looking for</label>
-          <input type="text" placeholder="Event">
-        </div>
-        <div class="field">
-          <label>In</label>
-          <input type="text" placeholder="Düsseldorf">
-        </div>
-          <div class="field">
-            <label>On</label>
-              <div class="ui selection dropdown">
-                <input type="hidden" name="gender">
-                <i class="dropdown icon"></i>
-                <div class="default text">Bevorstehend</div>
-                <div class="menu">
-                  <div class="item" data-value="today">Heute</div>
-                  <div class="item" data-value="this_week">Diese Woche</div>
-                  <div class="item" data-value="next_week">Nächste Woche</div>
-                  <div class="item" data-value="this_month">Diesen Monat</div>
-                  <div class="item" data-value="next_month">Nächsten Monat</div>
-                  <div class="item" data-value="upcoming">Bevorstehend</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <button class="ui huge compact icon submit button">
-          <i class="search icon"></i>
-        </button>
-      </div>
     </div>
-  </div>
 
-  <br>
+    <br>
 
-  <div class="ui three column centered grid">
-    <div class="three wide column"></div>
-    <div class="ten wide column">
-      <a class="ui green label">Fridays For Future</a>
-      <a class="ui blue label">Save The Internet</a>
-    </div>
-    <div class="three wide column"></div>
-  </div>
-
-  <div class="ui divider"></div>
-
-  <div class="ui three column centered grid">
-    <div class="two wide column"></div>
-      <div class="twelve wide column">
-        <div class="ui cards">
-
-          {% if latest_demos %}
-            {% for demo in latest_demos %}
-              <div class="card">
-                <div class="content">
-                <a class="header" href="/demo/{{ demo.id }}/">{{ demo.title }}</a>
-                <div class="meta">
-                  <span>{{demo.adress}}:</span>
-                  <span>{{demo.starting_time}}</span>
-                </div>
-                <div class="description">
-                  {{demo.description}}
-                </div>
-                </div>
-              </div>
-            {% endfor %}
-          {% endif %}
-
-        </div>
-      </div>
-    </div>
+    {% block content %} {% endblock content %}
 
     <br>
   </div>
@@ -213,6 +137,8 @@
     })
   ;
   </script>
+
+  {% block script %} {% endblock script %}
 </body>
 
 </html>
