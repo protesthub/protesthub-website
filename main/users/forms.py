@@ -5,4 +5,5 @@ class SignUpForm(forms.Form):
     username = forms.CharField(label='Your username', max_length=100, required=True)
     email = forms.EmailField(label='Your email', required=True)
     password = forms.CharField(label='Your password', max_length=100, required=True)
-
+    terms_of_use = forms.BooleanField(required=True)
+    newsletter = forms.BooleanField(required=False)

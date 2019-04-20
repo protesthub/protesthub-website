@@ -9,9 +9,12 @@ def sign_up(request):
         form = SignUpForm(request.POST)
 
         if form.is_valid():
-            user = User.objects.create_user(form.cleaned_data['username'],
-                                            form.cleaned_data['email'],
-                                            form.cleaned_data['password'])
+            user = User.objects.create_user(username=form.cleaned_data['username'],
+                                            email=form.cleaned_data['email'],
+                                            password=form.cleaned_data['password'])
+            user.profile.terms_of_use = form.cleaned_data['terms_of_use']
+            user.profile.newsletter = form.cleaned_data['newsletter']
+            user.save()
         else:
             form = SignUpForm
 
