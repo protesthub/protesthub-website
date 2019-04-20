@@ -1,3 +1,5 @@
 django
 mysqlclient
 coverage
+djangorestframework
+drf_ujson
