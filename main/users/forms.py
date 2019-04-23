@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms.widgets import PasswordInput, TextInput
 
 from .models import Profile
 
@@ -8,7 +10,7 @@ class SignUpForm(forms.Form):
                                widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     email = forms.EmailField(label='Your email', required=True, widget=forms.TextInput(attrs={'placeholder': 'Email'}))
     password = forms.CharField(label='Your password', max_length=100, required=True,
-                               widget=forms.TextInput(attrs={'placeholder': 'Password', 'type': 'password'}))
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     terms_of_use = forms.BooleanField(required=True)
     newsletter = forms.BooleanField(required=False)
 
@@ -20,3 +22,7 @@ class SignUpForm(forms.Form):
 
         return data
 
+
+class SignInForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput(attrs={'class': 'validate', 'placeholder': 'Email'}))
+    password = forms.CharField(widget=PasswordInput(attrs={'placeholder': 'Password'}))

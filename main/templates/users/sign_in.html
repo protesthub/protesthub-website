@@ -10,26 +10,17 @@
                 Join ProtestHub
             </div>
         </h2>
-        <form class="ui large form" action="{% url 'users:sign_up' %}" method="post">
+        <form class="ui large form" action="{% url 'users:sign_in' %}" method="post">
             {% csrf_token %}
 
             <div class="ui stacked segment">
                 <div class="field {{ form.username.errors|yesno:'error,,' }}">
-                    <label>Username</label>
+                    <label>Username or Email</label>
                     <div class="ui left icon input">
                         <i class="user icon"></i>
                         {{ form.username }}
                     </div>
                     {{ form.username.errors }}
-                </div>
-
-                <div class="field {{ form.email.errors|yesno:'error,,' }}">
-                    <label>Email</label>
-                    <div class="ui left icon input">
-                        <i class="mail icon"></i>
-                        {{ form.email }}
-                    </div>
-                    {{ form.email.errors }}
                 </div>
 
                 <div class="field {{ form.password.errors|yesno:'error,,' }}">
@@ -41,23 +32,7 @@
                     {{ form.password.errors }}
                 </div>
 
-                <div class="field {{ form.terms_of_use.errors|yesno:'error,,' }}">
-                    <div class="ui checkbox">
-                        {{ form.terms_of_use }}
-                        <label>I accept the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                    </div>
-                    {{ form.terms_of_use.errors }}
-                </div>
-
-                <div class="field">
-                    <div class="ui checkbox">
-                        {{ form.newsletter }}
-                        <label>I'd like to receive updates via email about ProtestHub.</label>
-                    </div>
-                </div>
-
-                <button class="ui fluid large green submit button" type="submit">Sign Up</button>
-
+                <button class="ui fluid large green submit button" type="submit" value="login">Sign In</button>
             </div>
 
             <div class="ui error message"></div>
@@ -65,7 +40,7 @@
         </form>
 
         <div class="ui message">
-            Already signed up? <a href="{% url 'users:sign_in' %}">Sign In</a>
+            Not registered? <a href="{% url 'users:sign_up' %}">Sign Up</a>
         </div>
     </div>
     <div class="six wide column"></div>

@@ -101,6 +101,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_USER_MODEL = 'users.Profile'
+AUTHENTICATION_BACKENDS = ['main.users.models.ProfileBackend']
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -116,6 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'users:sign_in'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
