@@ -15,7 +15,7 @@ def sign_up(request):
             user.profile.terms_of_use = form.cleaned_data['terms_of_use']
             user.profile.newsletter = form.cleaned_data['newsletter']
             user.save()
-        else:
-            form = SignUpForm
+    else:
+        form = SignUpForm()
 
-    return render(request, 'users/sign_up.html')
+    return render(request, 'users/sign_up.html', {'form': form})

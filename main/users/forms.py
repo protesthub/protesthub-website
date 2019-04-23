@@ -2,8 +2,10 @@ from django import forms
 
 
 class SignUpForm(forms.Form):
-    username = forms.CharField(label='Your username', max_length=100, required=True)
-    email = forms.EmailField(label='Your email', required=True)
-    password = forms.CharField(label='Your password', max_length=100, required=True)
+    username = forms.CharField(label='Your username', max_length=100, required=True,
+                               widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    email = forms.EmailField(label='Your email', required=True, widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+    password = forms.CharField(label='Your password', max_length=100, required=True,
+                               widget=forms.TextInput(attrs={'placeholder': 'Password', 'type': 'password'}))
     terms_of_use = forms.BooleanField(required=True)
     newsletter = forms.BooleanField(required=False)
