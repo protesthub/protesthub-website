@@ -3,7 +3,6 @@ from django.template import loader
 from django.views.generic import TemplateView
 
 from .models import Demo
-import operator
 
 from django.db.models import Q
 
@@ -17,7 +16,6 @@ def index(request):
     return HttpResponse(template.render(output, request))
 
 
-
 class search_view(TemplateView):
     template_name="main/search.html"
 
@@ -29,4 +27,3 @@ class search_view(TemplateView):
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(results=self.results, **kwargs)
-# Create your views here.

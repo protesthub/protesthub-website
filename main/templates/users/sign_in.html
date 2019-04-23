@@ -1,0 +1,61 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<div class="ui middle aligned grid">
+    <div class="six wide column"></div>
+    <div class="four wide column">
+        <h2 class="ui center aligned header">
+            <div class="content">
+                Join ProtestHub
+            </div>
+        </h2>
+        <form class="ui large form" action="{% url 'users:sign_in' %}" method="post">
+            {% csrf_token %}
+
+            <div class="ui stacked segment">
+                <div class="field {{ form.username.errors|yesno:'error,,' }}">
+                    <label>Username or Email</label>
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        {{ form.username }}
+                    </div>
+                    {{ form.username.errors }}
+                </div>
+
+                <div class="field {{ form.password.errors|yesno:'error,,' }}">
+                    <label>Password</label>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        {{ form.password }}
+                    </div>
+                    {{ form.password.errors }}
+                </div>
+
+                <button class="ui fluid large green submit button" type="submit" value="login">Sign In</button>
+            </div>
+
+            <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message">
+            Not registered? <a href="{% url 'users:sign_up' %}">Sign Up</a>
+        </div>
+    </div>
+    <div class="six wide column"></div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+$(document)
+  .ready(function() {
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+  })
+;
+
+</script>
+{% endblock script %}

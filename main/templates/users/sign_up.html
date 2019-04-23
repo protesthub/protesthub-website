@@ -1,0 +1,86 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<div class="ui middle aligned grid">
+    <div class="six wide column"></div>
+    <div class="four wide column">
+        <h2 class="ui center aligned header">
+            <div class="content">
+                Join ProtestHub
+            </div>
+        </h2>
+        <form class="ui large form" action="{% url 'users:sign_up' %}" method="post">
+            {% csrf_token %}
+
+            <div class="ui stacked segment">
+                <div class="field {{ form.username.errors|yesno:'error,,' }}">
+                    <label>Username</label>
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        {{ form.username }}
+                    </div>
+                    {{ form.username.errors }}
+                </div>
+
+                <div class="field {{ form.email.errors|yesno:'error,,' }}">
+                    <label>Email</label>
+                    <div class="ui left icon input">
+                        <i class="mail icon"></i>
+                        {{ form.email }}
+                    </div>
+                    {{ form.email.errors }}
+                </div>
+
+                <div class="field {{ form.password.errors|yesno:'error,,' }}">
+                    <label>Password</label>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        {{ form.password }}
+                    </div>
+                    {{ form.password.errors }}
+                </div>
+
+                <div class="field {{ form.terms_of_use.errors|yesno:'error,,' }}">
+                    <div class="ui checkbox">
+                        {{ form.terms_of_use }}
+                        <label>I accept the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    {{ form.terms_of_use.errors }}
+                </div>
+
+                <div class="field">
+                    <div class="ui checkbox">
+                        {{ form.newsletter }}
+                        <label>I'd like to receive updates via email about ProtestHub.</label>
+                    </div>
+                </div>
+
+                <button class="ui fluid large green submit button" type="submit">Sign Up</button>
+
+            </div>
+
+            <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message">
+            Already signed up? <a href="{% url 'users:sign_in' %}">Sign In</a>
+        </div>
+    </div>
+    <div class="six wide column"></div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+$(document)
+  .ready(function() {
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+  })
+;
+
+</script>
+{% endblock script %}
