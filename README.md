@@ -13,5 +13,5 @@ $ python manage.py migrate
 
 ## Tests
 ```bash
-$ python manage.py test
+$ python manage.py test --keepdb
 ```
