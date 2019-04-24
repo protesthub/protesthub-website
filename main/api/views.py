@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from api.serializers import searchSerializer
+from main.api.serializers import searchSerializer
 from main.models import Demo
 
 
