@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
 
-from .models import Profile
+from .models import User
 
 
 class SignUpForm(forms.Form):
@@ -17,7 +17,7 @@ class SignUpForm(forms.Form):
     def clean_email(self):
         data = self.cleaned_data['email']
 
-        if Profile.objects.filter(email=data).count() > 0:
+        if User.objects.filter(email=data).count() > 0:
             raise forms.ValidationError('Email already taken.')
 
         return data
