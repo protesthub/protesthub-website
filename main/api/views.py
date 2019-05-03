@@ -8,15 +8,20 @@ class specificsearchViewset(viewsets.ReadOnlyModelViewSet):
     serializer_class = searchSerializer
 
     def get_queryset(self):
-
-        queryset = Demo.objects.all().order_by('-created_at')
+        search = self.request.query_params.get('search', None)
+        if search is not None:
+            queryset = Demo.objects.search(search)
+        else:
+            queryset = Demo.objects.all().order_by('-created_at')
         title = self.request.query_params.get('title', None)
         adress = self.request.query_params.get('adress', None)
+
 
         if title is not None:
             queryset = queryset.filter(title__icontains=title)
         if adress is not None:
             queryset = queryset.filter(title__icontains=adress)
+
 
         return queryset
 

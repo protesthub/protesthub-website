@@ -1,6 +1,6 @@
 # Create your models here.
 import datetime
-
+from main.search.django_fulltext_search import SearchManager
 from django.db import models
 from django.utils import timezone
 
@@ -14,6 +14,7 @@ class Demo(models.Model):
     description = models.TextField(max_length=15000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = SearchManager(['title','adress','organizer','description'])
 
     def was_published_recently(self):
         return self.created_at >= timezone.now() - datetime.timedelta(days=1)

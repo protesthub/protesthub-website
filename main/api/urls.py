@@ -4,7 +4,7 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'search-specific', views.specificsearchViewset, base_name="Demo")
+router.register(r'search', views.specificsearchViewset, base_name="Demo")
 
 urlpatterns = [
     path('', include(router.urls), name='index'),
